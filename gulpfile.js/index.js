@@ -7,7 +7,7 @@ sass.compiler = require('node-sass');
 function sassTask() {
 	return src('assets/scss/**/*.scss')
 		.pipe(sourcemaps.init())
-		.pipe(sass().on('error', sass.logError))
+		.pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
 		.pipe(sourcemaps.write())
 		.pipe(dest('css/'));
 }
